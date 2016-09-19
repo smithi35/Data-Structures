@@ -22,5 +22,6 @@ Queue::Queue() {
 }
 
 void Queue::insert(int number) {
-	
+	Node *newNode = new Node(number);
+	newNode.set_next(first);
 }

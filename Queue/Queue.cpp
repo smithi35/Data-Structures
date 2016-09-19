@@ -27,16 +27,19 @@ Queue::Queue()
 void Queue::insert(int number)
 {
 	Node *newNode = new Node(number);
-	newNode.set_next(first);
+	last.set_next(newNode);
 	length++;
 }
 
 int Queue::removeTop()
 {
 	Node *remove = first;
+	int removed = remove.get_data();
+	delete remove;
+	
 	first = first.get_next();
 	length--;
-	return remove.get_data();
+	return removed;
 }
 
 int Queue::search(int index)

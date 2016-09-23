@@ -1,3 +1,6 @@
+#ifndef NODE_H
+#define NODE_H
+
 class Node {
 	private: 
 		int data;
@@ -8,4 +11,6 @@ class Node {
 		Node *get_next();
 		void set_next(Node *node);
 		~Node();
-}
+};
+
+#endif

@@ -1,10 +1,9 @@
 public class Stack {
 	private Node top;
-	private Node bottom;
 	private int length;
 	
 	public Stack() {
-		top = bottom = null;
+		top = null;
 		length = 0;
 	}
 	
@@ -12,20 +11,33 @@ public class Stack {
 		Node add = new Node(item);
 		add.setNext(top);
 		top = add;
+		length++;
 	}
 	
 	public int pop() {
-		Node popped = top;
+		int output = top.getData();
 		top = top.getNext();
-		return popped.getData();
+		length--;
+		return output;
 	}
 	
 	public boolean isEmpty() {
 		boolean empty = false;
-		if (top == null || bottom == null || length == 0) {
-			empty = true
+		if (top == null && length == 0) {
+			empty = true;
 		}
 		
 		return empty;
+	}
+	
+	public String toString() {
+		String output = "[";
+		Node curr = top;
+		for (int i = 0; i < length; i++) {
+			output = output + curr.getData() + ", ";
+			curr = curr.getNext();
+		}
+		output = output + "]";
+		return output;
 	}
 }
